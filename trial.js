@@ -1,13 +1,12 @@
-const stitch = require("mongodb-stitch")
-const client = new stitch.StitchClient('trial-awkdu');
-const db = client.service('mongodb', 'mongodb-atlas').db('my-first-trial');
-client.login().then(() =>
-  db.collection('trial').updateOne({ owner_id: client.authedId() }, { $set: { number: 42 } }, { upsert: true })
-).then(() =>
-  db.collection('trial').find({ owner_id: client.authedId() }).limit(100).execute()
-  ).then(docs => {
-    console.log("Found docs", docs)
-    //console.log("[MongoDB Stitch] Connected to Stitch")
-  }).catch(err => {
-    console.error(err)
-  });
+var mongoClient = require('mongodb').MongoClient
+var url = "mongodb://localhost:27017/mynode-app"        //database name: mynode-app
+
+mongoClient.connect(url, function (err, db) {
+  if (err) {                                              // throwing the err
+    console.log("Sorry Couldn't connect! ('_') \nSome error occured")
+    throw err
+  }
+
+  console.log("connected to mongodb: mynode-app")
+  db.close(function () { console.log('connection terminated') })
+})
