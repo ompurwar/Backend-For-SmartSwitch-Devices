@@ -13,11 +13,21 @@ mongoClient.connect(url, function (err, client) {
       throw err;
     } else {
       console.log("success!")
+      var myobj = {
+        "name": {
+          "first-name": "Om",
+          "last-name": "Purwar"
+        }
+      }
+      db.collection("user").insertOne(myobj, function (err, res) {
+        if (err) throw err
+        else {
+          console.log("object insearted")
+          client.close(function () {
+            console.log('connection terminated')
+          })
+        }
+      })
     }
-    client.close(function () {
-      console.log('connection terminated')
-    })
   })
-
-
 })
