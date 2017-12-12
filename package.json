@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/ompurwar/mongoDb-on-node-js#readme",
   "dependencies": {
+    "mongodb": "^3.0.0-rc0",
     "mongodb-stitch": "^2.3.0"
   }
 }

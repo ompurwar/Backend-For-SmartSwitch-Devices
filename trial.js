@@ -11,5 +11,3 @@ client.login().then(() =>
   }).catch(err => {
     console.error(err)
   });
-
-  console.log("hello om")
