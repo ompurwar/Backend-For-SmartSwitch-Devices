@@ -1,0 +1,27 @@
+{
+  "name": "trial",
+  "version": "1.0.0",
+  "description": "just tring the mongoDb on nodejs",
+  "main": "trial.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ompurwar/mongoDb-on-node-js.git"
+  },
+  "keywords": [
+    "MongoDb",
+    "on",
+    "nodeJS"
+  ],
+  "author": "Om Purwar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ompurwar/mongoDb-on-node-js/issues"
+  },
+  "homepage": "https://github.com/ompurwar/mongoDb-on-node-js#readme",
+  "dependencies": {
+    "mongodb-stitch": "^2.3.0"
+  }
+}
