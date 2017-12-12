@@ -6,6 +6,14 @@ mongoClient.connect(url, function (err, db) {
     console.log("Sorry Couldn't connect! ('_') \nSome error occured")
     throw err
   }
+  db.createCollection("user", function(err ,res){
+    if(err){
+      console.log('some error occured')
+      throw err;
+    }else{
+      console.log("success!")
+    }
+  })
 
   console.log("connected to mongodb: mynode-app")
   db.close(function () { console.log('connection terminated') })
