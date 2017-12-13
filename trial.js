@@ -14,7 +14,13 @@ app.use(function (req, res, next) {
   next()
 })
 app.use(bodyParser.json())
-
+app.get('/', function (req, res) {
+  res.sendFile(__dirname+'/login/index.html')
+})
+app.get('/js/index.js', function(req, res){
+  console.log("\n \t:/js/index.js\t file requested!")
+  res.sendFile(__dirname+'/login/js/index.js')
+})
 app.post('/api/addData/', function (req, res) {
   console.log('wellcome! to mongoDb app')
   console.log(req.body)
