@@ -1,0 +1,18 @@
+{
+	"name":{
+		"first-name":"lavkush",
+		"last-name":"upadhayaya"
+	},
+	"age":22,
+	"qulaifications":{
+		"course":"b.tech",
+		"branch":"mechanical",
+		"batch":{
+			"from":2014,
+			"to":2018
+		},
+		"roll-no":1410104010,
+		"university":"rama university"
+	}
+	
+}
