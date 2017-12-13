@@ -33,7 +33,7 @@ mongoClient.connect(url, function (err, client) {
             db.collection("user").findOne({}, function (err, result) {
 
               if (err) {
-                throw err;
+                throw err; 
               } else {
                 console.log(JSON.stringify(result.name['first-name']))
               }
