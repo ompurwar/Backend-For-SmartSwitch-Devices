@@ -36,7 +36,7 @@ app.post('/api/addData/', function (req, res) {
 
             console.log("collection success!")
             //console.log(body)
-            var myobj = body   /// Data abject to enter
+            var myobj = body /// Data abject to enter
 
             db.collection("user").insertOne(myobj, function (err) { //Inserting an objet to collection
 
@@ -68,6 +68,4 @@ app.post('/api/addData/', function (req, res) {
       }
     })
   }
-
-
 })
