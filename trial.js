@@ -1,5 +1,14 @@
-var mongoClient = require('mongodb').MongoClient
-var url = "mongodb://localhost:27017/mynode-app" //database name: mynode-app
+const mongoClient = require('mongodb').MongoClient
+const url = "mongodb://localhost:27017/mynode-app" //database name: mynode-app
+const bodyParser=require("body-parser")
+
+const express = require("express")
+const app=express()
+//setting up the server
+const server = app.listen(1245, function(){console.log("listening to the port\t:"+ server.address().port)})
+
+app.use(function(req, res, next){ res.setHeader('Access-Control-Allow-Credentials', true); next()})
+app.use(bodyParser.json())
 
 mongoClient.connect(url, function (err, client) {
   if (err) { // throwing the err
