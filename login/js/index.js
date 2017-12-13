@@ -7,11 +7,16 @@ This is just the HTML / CSS of it but it uses wordpress's login system.
 Nice and Simple
 
 */
-function sendData(usr, pwd) {
+function sendData(Email, usr, pwd) {
     var http = new XMLHttpRequest()
     http.open("POST", "/api/addData/", true)
+
     http.setRequestHeader("Content-type", "application/json")
-    var data=JSON.stringify({"user": usr,"pwd": pwd})
+    var data = JSON.stringify({
+        "Email": Email,
+        "user": usr,
+        "pwd": pwd
+    })
     console.log(data)
-    http.send(data) 
-    }
+    http.send(data)
+}

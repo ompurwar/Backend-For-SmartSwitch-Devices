@@ -17,10 +17,20 @@ app.use(bodyParser.json())
 app.get('/', function (req, res) {
   res.sendFile(__dirname+'/login/index.html')
 })
+app.post('/', function(req, res){
+  console.log("\n \t:/js/index.html\t file requested!")
+  res.sendFile(__dirname+'/login/index.html')
+})
 app.get('/js/index.js', function(req, res){
   console.log("\n \t:/js/index.js\t file requested!")
   res.sendFile(__dirname+'/login/js/index.js')
 })
+
+app.get('/css/style.css', function(req, res){
+  console.log("\n \t:/css/style.css\t file requested!")
+  res.sendFile(__dirname+'/login/css/style.css')
+})
+
 app.post('/api/addData/', function (req, res) {
   console.log('wellcome! to mongoDb app')
   console.log(req.body)
