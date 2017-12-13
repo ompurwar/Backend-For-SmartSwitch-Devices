@@ -30,15 +30,15 @@ mongoClient.connect(url, function (err, client) {
 
             console.log("object insearted")
 
-            db.collection("user").findOne({}, function (err, result) {
+            db.collection("user").find({}, { '_id': 0 },{}).toArray(function (err, result) {
 
               if (err) {
                 throw err; 
               } else {
-                console.log(JSON.stringify(result.name['first-name']))
+                console.log(result)
               }
 
-            })
+            });
 
             client.close(function () {
               console.log('connection terminated')
