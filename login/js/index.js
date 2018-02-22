@@ -8,15 +8,15 @@ Nice and Simple
 
 */
 function sendData(Email, usr, pwd) {
-    var http = new XMLHttpRequest()
-    http.open("POST", "/api/addData/", true)
+    var http = new XMLHttpRequest();
+    http.open("POST", "/api/addData", true);
 
-    http.setRequestHeader("Content-type", "application/json")
+    http.setRequestHeader("Content-type", "application/json");
     var data = JSON.stringify({
         "Email": Email,
         "user": usr,
         "pwd": pwd
-    })
-    console.log(data)
-    http.send(data)
+    });
+    console.log(data);
+    http.send(data);
 }
