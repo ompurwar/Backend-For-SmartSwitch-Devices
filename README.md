@@ -1,7 +1,7 @@
 # mongoDb-on-node-js
 mongoDb on nodeJs
 Installation:
-1.Just navigate to the mongoDb-on-node-js directory using cmd 
+1. Just navigate to the mongoDb-on-node-js directory using cmd 
 2. And hit the following commands
    "npm install"
    and then after that
