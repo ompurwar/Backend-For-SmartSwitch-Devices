@@ -10,7 +10,7 @@ const express = require('express');
 const app = express();
 
 // setting up the server
-const server = app.listen(1245, function() {
+const server = app.listen(1245,function() {
   console.log('listening to the port\t:' + server.address().port);
 });
 
@@ -95,7 +95,7 @@ const FindData = (req, res, next) => {
   next();
 };
 
-
+//middleware for dele
 const DeleteData = (req, res, next) => {
   mongoClient.connect(url, {poolSize: 10, ssl: true}, function(err, client) {
     if (err) {
