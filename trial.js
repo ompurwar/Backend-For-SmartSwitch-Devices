@@ -10,7 +10,7 @@ const express = require('express');
 const app = express();
 
 // setting up the server
-const server = app.listen(1245,function() {
+const server = app.listen(8080,function() {
   console.log('listening to the port\t:' + server.address().port);
 });
 
