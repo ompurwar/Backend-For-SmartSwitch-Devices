@@ -58,7 +58,7 @@ const InsertAndFindData = (req, res, next) => {
         // Declaring a db object
         var db = client.db('SwitchGrid');
         // Inserting an objet to collection
-        db.collection('user').insertOne(myobj, function(err) {
+        db.collection('users').insertOne(myobj, function(err) {
           if (err) {
             console.log('error on line:\t44', err);
             res.json(err);
@@ -85,7 +85,7 @@ const FindData = (req, res, next) => {
       console.log('Connected correctly to server');
       // Declaring a db object
       var db = client.db('SwitchGrid');
-      db.collection('user').find(myobj).toArray(function(err, result) {
+      db.collection('users').find(myobj).toArray(function(err, result) {
 
         if (err) {
           throw err;
@@ -112,7 +112,7 @@ const DeleteData = (req, res, next) => {
       // Declaring a db object
       var db = client.db('SwitchGrid');
       var myquery = req.body;
-      db.collection('user').deleteOne(myquery, function(err, obj) {
+      db.collection('users').deleteOne(myquery, function(err, obj) {
         // throwing the err
         if (err) throw err;
         console.log('deleted:\t ' + obj.deletedCount);
