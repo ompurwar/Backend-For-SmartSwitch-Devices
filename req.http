@@ -1,0 +1,45 @@
+post http://hello-pc:8080/api/setStates HTTP/1.1
+content-type: application/json
+
+{
+    "smaller": 5,
+    "larger": 7
+}
+
+###
+POST  http://hello-pc:8080/api/addData HTTP/1.1
+content-type: application/json
+
+{
+    "smaller": 5,
+    "larger": 7
+}
+###
+POST  http://hello-pc:8080/api/setStates HTTP/1.1
+content-type: application/json
+
+{"hello":"idots"}
+
+
+###
+POST  http://hello-pc:8080/api/RegisterDevice HTTP/1.1
+content-type: application/json
+Connection: close
+
+{"secret":"eca102e9ba65ae8df7744126482d0b7517e6f08f3ff0576555daf6d3d0cdeae3"}
+
+###
+POST  http://hello-pc:8080/api/syncstate HTTP/1.1
+content-type: application/json
+Connection: close
+
+{"secret":"hello"}
+
+
+###
+
+POST  http://hello-pc:8080/api/findData HTTP/1.1
+Content-Type: application/json
+Connection: close
+
+{"age":23}
