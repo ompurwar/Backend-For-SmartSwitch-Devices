@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://www.switchgrid.xyz/ -->
+<html class="gr__switchgrid_xyz">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>IoT-Grid-Beta</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./SwitchGrid-Beta_files/style_login.css">
+  <!--<link rel="stylesheet" href="./SwitchGrid-Beta_files/pageloader.css">-->
+
+  <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+  <script type="text/javascript">
+    /*localStorage.clear();
+                                setTimeout(function(){
+                                  window.location.reload(1);
+                                }, 5000);*/
+  </script>
+
+</head>
+
+<body data-gr-c-s-loaded="true">
+  <hgroup>
+    <h1>IoT GRID</h1>
+    <h3>PLAYGROUND</h3>
+  </hgroup>
+  <div id="pageLoader" class="cssload-thecube" data-bind="visible:pageLoader" style="display: none;">
+    <div class="cssload-cube cssload-c1"></div>
+    <div class="cssload-cube cssload-c2"></div>
+    <div class="cssload-cube cssload-c4"></div>
+    <div class="cssload-cube cssload-c3"></div>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Device Mac Address here!">
+    </div>
+
+    <button type="button" class="button buttonBlue" data-bind="css: { buttonRed : ViewModel.state1()==false,buttonBlue: ViewModel.state1()==true },click:function(){switchClick(1);}">
+      <div class="ripples buttonRipples">
+        <span class="ripplesCircle" style="top: 12.7656px; left: 176.5px;"></span>
+      </div>
+      <div data-bind="visible:ViewModel.state1()" style="">Switch 1-On</div>
+      <div data-bind="visible:ViewModel.state1()==false" style="display: none;">Switch 1-Off</div>
+    </button>
+
+    <button type="button" class="button buttonBlue" data-bind="css: { buttonRed : ViewModel.state2()==false,buttonBlue: ViewModel.state2()==true },click:function(){switchClick(2);}">
+      <div class="ripples buttonRipples">
+        <span class="ripplesCircle" style="top: 14.9688px; left: 152.5px;"></span>
+      </div>
+      <div data-bind="visible:ViewModel.state2()" style="">Switch 2-On</div>
+      <div data-bind="visible:ViewModel.state2()==false" style="display: none;">Switch 2-Off</div>
+    </button>
+
+  </form>
+  <footer>
+    <p>A PROJECT BY OM PURWAR & PARASHU RAM</p>
+  </footer>
+
+  <script src="./SwitchGrid-Beta_files/jquery.min.js"></script>
+  <script src="./SwitchGrid-Beta_files/knockout-min.js"></script>
+  <script src="./SwitchGrid-Beta_files/config.js"></script>
+
+  <script src="./SwitchGrid-Beta_files/index.js"></script>
+  <script src="./SwitchGrid-Beta_files/sweetalert.js"></script>
+  <script src="./SwitchGrid-Beta_files/index_vm.js"></script>
+
+
+
+
+</body>
+<span class="gr__tooltip">
+  <span class="gr__tooltip-content"></span>
+  <i class="gr__tooltip-logo"></i>
+  <span class="gr__triangle"></span>
+</span>
+
+</html>

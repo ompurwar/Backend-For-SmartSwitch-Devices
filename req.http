@@ -44,25 +44,7 @@ Connection: close
 
 {"age":23}
 
-###
-     
-POST  http://hello-pc:8080/api/RegisterDevice HTTP/1.1
-content-type: application/json
-Connection: close
 
-{
-    "SHA256": "eca102e9ba65ae8df7744126482d0b7517e6f08f3ff0576555daf6d3d0cdeae3",
-    "sta_mac": "A0:20:A6:25:1A:2F",
-    "ap_mac": "A2:20:A6:25:1A:2F",
-    "chip_Id": 2431535,
-    "device_type": "Switch_board_DuO",
-    "chip_name": "ESP8266_NodeMCU",
-    "chip_version": "1.0",
-    "chip_size": 4194304,
-    "free_size": 2818048,
-    "sketch_size": 324560,
-    "sdk_version": "2.1.0(deb1901)" 
-}
 
 ###
 POST  http://myproject-my-project13.1d35.starter-us-east-1.openshiftapps.com:80/api/RegisterDevice HTTP/1.1
@@ -95,6 +77,62 @@ Postman-Token: 5ead5d24-3369-46c4-bc8d-78b8c320237d
       "Key":"ZXCVBNM"   
 }
 
+
+
+
+###
+POST  http://myproject-my-project13.1d35.starter-us-east-1.openshiftapps.com/api/setStates HTTP/1.1
+content-type: application/json
+
+{"hello":"idots"}
+
+
+
+
+
+
+
+
+############################################# APIS START FOR IOT GRID ######################################
+
+     
+POST  http://hello-pc:8080/api/RegisterDevice HTTP/1.1
+content-type: application/json
+Connection: close
+
+{
+    "SHA256": "eca102e9ba65ae8df7744126482d0b7517e6f08f3ff0576555daf6d3d0cdeae3",
+    "sta_mac": "A0:20:A6:25:1A:2F",
+    "ap_mac": "A2:20:A6:25:1A:2F",
+    "chip_Id": 2431535,
+    "device_type": "Switch_board_DuO",
+    "chip_name": "ESP8266_NodeMCU",
+    "chip_version": "1.0",
+    "chip_size": 4194304,
+    "free_size": 2818048,
+    "sketch_size": 324560,
+    "sdk_version": "2.1.0(deb1901)" 
+}
+
+###
+POST  http://hello-pc:8080/api/RegisterDevice HTTP/1.1
+content-type: application/json
+Connection: close
+
+{
+    "SHA256": "eca102e9ba65ae8df7744126482d0b7517e6f08f3ff0576555daf6d3d0cdeae3",
+    "sta_mac": "A0:20:A6:25:1A:2F",
+    "ap_mac": "A2:20:A6:25:1A:2F",
+    "chip_Id": 2431535,
+    "device_type": "Switch_board_DuO",
+    "chip_name": "ESP8266_NodeMCU",
+    "chip_version": "1.0",
+    "chip_size": 4194304,
+    "free_size": 2818048,
+    "sketch_size": 324560,
+    "sdk_version": "2.1.0(deb1901)" 
+}
+
 ###
 POST http://hello-pc:8080/api/authenticate HTTP/1.1
 Content-Type: application/json
@@ -106,14 +144,6 @@ Postman-Token: 5ead5d24-3369-46c4-bc8d-78b8c320237d
       "pass":"1dbe001c90061f6bc2954ff770f9915f7905a59e75e08292ba2c15a3668b64e0"   
 }
 
-
-###
-POST  http://myproject-my-project13.1d35.starter-us-east-1.openshiftapps.com/api/setStates HTTP/1.1
-content-type: application/json
-
-{"hello":"idots"}
-
-
 ###
 POST http://hello-pc:8080/api/syncstate HTTP/1.1
 Content-Type: application/json
@@ -121,7 +151,7 @@ Cache-Control: no-cache
 Connection: close
 
 {
-  "SessionId": "813ef8a5d490e10180f2608055d2c8f34d61688d",
+  "SessionId": "1f0b6268f3be73261164aa4bb8ac88f318ac9c87",
   "errFlag": "0",
   "state_array": [
     {
@@ -134,6 +164,7 @@ Connection: close
     }
   ]
 }
+
 ###
 POST http://hello-pc:8080/api/syncstate HTTP/1.1
 Content-Type: application/json
@@ -141,7 +172,7 @@ Cache-Control: no-cache
 Connection: close
 
 {
-  "SessionId": "813ef8a5d490e10180f2608055d2c8f34d61688d",
+  "SessionId": "1f0b6268f3be73261164aa4bb8ac88f318ac9c87",
   "errFlag": "0"
 }
 

@@ -1,0 +1,264 @@
+$out: 30%;
+$in: 35%;
+$default-transtion: .5s;
+
+
+* {
+  box-sizing: border-box;
+}
+.view__more{
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20px 40px;
+  background: lighten(#3A4366, 20%);
+  color: #fff;
+  transition: all .3s;
+  &:hover{
+    background: lighten(#3A4366, 25%);
+  }
+}
+body{
+  background: #3A4366;
+  font-family: 'Lato', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.panel{
+  width: 600px;
+  margin: auto;
+  
+  &__menu{
+    width: 100%;
+    float: left;
+    margin: 20px 0 30px;
+    position: relative;
+    
+    &.second-box{
+      hr{
+        transform: translateX(325%);
+      }
+    }
+    
+    hr{
+      position: absolute;  
+      top: 100%;
+      width: 20%;
+      transform: translateX(75%);
+      border: none;
+      background: #C8DFED;
+      height: 1px;
+      margin: 0;
+      transition: all $default-transtion;
+    }
+    
+    li{
+      width: 50%;
+      text-align: center;
+      float: left;
+      cursor: pointer;
+
+      a{
+        color: #fff;
+        display: inline-block;
+        padding: 17px 30px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  
+  &__wrap{
+    width: 100%;
+    float: left;
+    position: relative;
+    .panel__box{
+      label{
+        opacity: 0;
+      }
+      &:first-child{
+        left: 0;
+        transform: translateX($out) scale(.8);
+        animation: box-1--out $default-transtion;
+        transform-origin: center right;
+        &.active{
+          transform: translateX($in);
+          animation: box-1 $default-transtion;
+        }
+      }
+      &:last-child{
+        right: 0;
+        transform: translateX(-$out) scale(.8);
+        animation: box-2--out $default-transtion;
+        transform-origin: center left;
+        input{
+          &[type="submit"]{
+            background: none;
+            border: 1px solid #A5E434;
+            color: #A5E434;
+          }
+        }
+        &.active{
+          animation: box-2 $default-transtion;
+          transform: translateX(-$in);
+        }
+      }
+    }
+  }
+  
+  &__box{
+    width: 50%;
+    float: left;
+    z-index: 1;
+    background: pink;
+    position: absolute;
+    padding: 20px;
+    background: #C8DFED;
+    border-radius: 4px;
+    transition: all $default-transtion;
+    
+    &.active{
+      background: #fff;
+      z-index: 2;
+      
+      label, input{
+        opacity: 1;
+      }
+    }
+    
+    label{
+      float: left;
+      width: 100%;
+      margin-bottom: 20px;
+      color: darken(#AFBFBF, 5%);
+    }
+    input{
+      outline: none;
+      opacity: 0;
+      &[type="email"], &[type="password"]{
+        margin-top: 10px;
+        width: 100%;
+        float: left;
+        background: #EEF9FE;
+        border: 1px solid #CDDBEF;
+        border-radius: 3px;
+        padding: 7px 10px;
+      }
+      &[type="submit"]{
+        float: right;
+        cursor: pointer;
+        border: none;
+        padding: 11px 40px;
+        background: #A5E434;
+        border-radius: 30px;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@keyframes box-1{
+  0%{
+    transform: translateX($out) scale(.8);
+    z-index: 1;
+  }
+  49%{
+    transform: translateX(0) scale(.9);
+    z-index: 1;
+  }
+  50%{
+    transform: translateX(0) scale(.9);
+    z-index: 2;
+    label, input{
+      opacity: 0;
+    }
+  }
+  100%{
+    transform: translateX($in) scale(1);
+    z-index: 2;
+    label, input{
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes box-1--out{
+  0%{
+    transform: translateX($in) scale(1);
+    z-index: 2;
+    label{
+      opacity: 1;
+    }
+  }
+  49%{
+    transform: translateX(0) scale(.9);
+    z-index: 2;
+  }
+  50%{
+    transform: translateX(0) scale(.9);
+    z-index: 1;
+    label, input{
+      opacity: 1;
+    }
+  }
+  100%{
+    transform: translateX($out) scale(.8);
+    z-index: 1;
+    label, input{
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes box-2{
+  0%{
+    transform: translateX(-$out) scale(.8);
+    z-index: 1;
+  }
+  49%{
+    transform: translateX(0) scale(.9);
+    z-index: 1;
+  }
+  50%{
+    transform: translateX(0) scale(.9);
+    z-index: 2;
+    label, input{
+      opacity: 0;
+    }
+  }
+  100%{
+    transform: translateX(-$in) scale(1);
+    z-index: 2;
+    label, input{
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes box-2--out{
+  0%{
+    transform: translateX(-$in) scale(1);
+    z-index: 2;
+  }
+  49%{
+    transform: translateX(0) scale(.9);
+    z-index: 2;
+  }
+  50%{
+    transform: translateX(0) scale(.9);
+    z-index: 1;
+    label, input{
+      opacity: 1;
+    }
+  }
+  100%{
+    transform: translateX(-$out) scale(.8);
+    z-index: 1;
+    label, input{
+      opacity: 0;
+    }
+  }
+}

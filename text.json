@@ -1,4 +1,5 @@
 {
+
     "user_name": "om purwar",
     "adhaar_no": "2313123412341234",
     "nationality": "indian",
@@ -28,5 +29,23 @@
         "salt": "",
         "pass": ""
     },
-    "active_flag": true
+    "active_flag": true,
+
+
+
+    "device_id": ObjectId(''),
+    "state_array": [{
+            "Id": 3,
+            "state": true
+        },
+        {
+            "Id": 4,
+            "state": true
+        }
+    ],
+    "Current": 1.1,
+    "req_made_timeStamp": "1",
+    "req_land_timeStamp": "2",
+    "timeStamp": "6526592230956728321"
+
 }
