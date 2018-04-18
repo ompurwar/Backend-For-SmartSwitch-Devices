@@ -1,7 +1,9 @@
+
 // https://github.com/epoberezkin/ajv#some-packages-using-ajv
 // https://spacetelescope.github.io/understanding-json-schema/reference/null.html
 var mongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://192.168.43.104:27017';  // database name:
+var mongodb = require('mongodb');
+var url = 'mongodb://localhost:27017';  // database name:
 // mynode-app
 var crypto = require('crypto');
 // var pass = 'Ee332MEd8cJBVDpX';
@@ -17,7 +19,8 @@ var ObjectId = require('mongodb').ObjectId;
 var timeStamp = require('mongodb').Timestamp;
 var valid_session_attempts = 10000;
 var user = require('./include/models/user');
-
+//variable to store global database connection
+var mydb;
 // attaching bodyparser middleware
 app.use(bodyParser.json());
 
@@ -44,10 +47,11 @@ app.use(function(req, res, next) {
 
 
 
+
 // using morgan a as middleware for logging purposes
 app.use(morgan('combined'));
 
-
+/*
 //////////////////////////////////////////////////////\
 var mongoose = require('mongoose');
 var session = require('express-session');
@@ -72,10 +76,7 @@ app.use(session({
 
 
 
-// setting up the server
-var server = app.listen(8080, function() {
-  console.log('listening to the port\t:' + server.address().port);
-});
+
 
 
 
@@ -113,7 +114,8 @@ app.post('/signUp', function(req, res,next) {
     });
 
   } else if (req.body.logemail && req.body.logpassword) {
-    User.authenticate(req.body.logemail, req.body.logpassword, function (error, user) {
+    User.authenticate(req.body.logemail, req.body.logpassword, function (error,
+user) {
       if (error || !user) {
         var err = new Error('Wrong email or password.');
         err.status = 401;
@@ -129,7 +131,12 @@ app.post('/signUp', function(req, res,next) {
     return next(err);
   }
 });
+*/
 
+// setting up the server
+var server = app.listen(8080, function() {
+  console.log('listening to the port\t:' + server.address().port);
+});
 // Json validator middle-ware
 var Validate_JSON = function(req, res, next) {
   // JSON_validator from my custom module
@@ -148,7 +155,8 @@ app.post('/api/RegisterDevice', function(req, res) {
   var hash = MyFunctions.hashit(req.body.SHA256);
 
   mongoClient.connect(
-      url, {
+      url,
+      {
         poolSize: 20,
         // ssl: true
       },
@@ -252,7 +260,8 @@ app.post('/api/RegisterDevice', function(req, res) {
                                 'timeStamp': new Date()
                               },
                               function(err, result_create_device) {
-                                console.log(JSON.stringify(result_create_device));
+                                console.log(
+                                    JSON.stringify(result_create_device));
                                 if (err) {
                                   res.json('soemerror occured');
                                   console.log(JSON.stringify(err.message));
@@ -260,22 +269,25 @@ app.post('/api/RegisterDevice', function(req, res) {
                                      console.log('connection terminated');
                                    });*/
                                 } else
-                                //If new device record inserted successfully
-                                //than create its credential 
-                                if (result_create_device.ops[0]) {
+                                    // If new device record inserted
+                                    // successfully
+                                    // than create its credential
+                                    if (result_create_device.ops[0]) {
                                   // res.json('Device registered');
                                   console.log(result_create_device.ops[0]._id);
-                                  var device_id = result_create_device.ops[0]._id;
-                                  var passkey = crypto.randomBytes(32).toString('hex');
+                                  var device_id =
+                                      result_create_device.ops[0]._id;
+                                  var passkey =
+                                      crypto.randomBytes(32).toString('hex');
                                   var salt =
                                       crypto.randomBytes(10).toString('hex');
-                                      //new credential
+                                  // new credential
                                   var device_credentials = {
                                     'device_id': device_id,
                                     'pass': MyFunctions.hashit(passkey + salt),
                                     'salt': salt
                                   };
-                                  //Inserting new credentials
+                                  // Inserting new credentials
                                   db.collection('device_credentials')
                                       .insertOne(
                                           device_credentials,
@@ -332,6 +344,7 @@ app.post('/api/RegisterDevice', function(req, res) {
 app.post('/api/syncstate/', function(req, res) {
   console.log('wellcome! to mongoDb app \t/api/syncstate/');
   console.log(req.body);
+  
   mongoClient.connect(url, function(err, client) {
     if (err) {
       throw err;
@@ -344,6 +357,7 @@ app.post('/api/syncstate/', function(req, res) {
          *if exist decrement the counter by one
          *and obtain the objectid of device
          */
+        
         db.collection('session_store')
             .findOneAndUpdate(
                 {SessionID: req.body.SessionId}, {$inc: {counter: -1}},
@@ -518,10 +532,10 @@ app.get('/api/getStates', function(req, res) {
 });
 
 // data entry bu UI
-app.post('/api/postData',function (req, res){
+app.post('/api/postData', function(req, res) {
   console.log(req.body);
   res.send(200);
-} );
+});
 // Api for client side to send the new states
 app.post('/api/setStates', function(req, res) {
   console.log('wellcome! to mongoDb app \t/api/setStates');
