@@ -1,12 +1,11 @@
 // https://github.com/epoberezkin/ajv#some-packages-using-ajv
 // https://spacetelescope.github.io/understanding-json-schema/reference/null.html
 var mongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://192.168.43.104:27017';  // database name:
+//var url = 'mongodb://192.168.43.104:27017';  // database name:
 // mynode-app
 var crypto = require('crypto');
 // var pass = 'Ee332MEd8cJBVDpX';
-// var url = 'mongodb+srv://turbo:' + pass +
-//   '@cluster0-ztclp.mongodb.net';  // database name: SwitchGrid
+var url = 'mongodb+srv://turbo:' + pass +'@cluster0-ztclp.mongodb.net';  // database name: SwitchGrid
 var myModules = require('./include/essencial_functions_module');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
