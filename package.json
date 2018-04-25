@@ -2,10 +2,10 @@
   "name": "trial",
   "version": "1.0.0",
   "description": "just tring the mongoDb on nodejs",
-  "main": "trial.js",
+  "main": "index.js",
   "scripts": {
     "test": "start",
-    "start": "nodemon trial.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,3 @@
+# [start app_yaml]
+runtime: nodejs
+vm: true
