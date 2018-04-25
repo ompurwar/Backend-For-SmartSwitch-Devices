@@ -3,12 +3,11 @@
 // https://spacetelescope.github.io/understanding-json-schema/reference/null.html
 var mongoClient = require('mongodb').MongoClient;
 var mongodb = require('mongodb');
-var url = 'mongodb://localhost:27017';  // database name:
+//var url = 'mongodb://localhost:27017';  // database name:
 // mynode-app
 var crypto = require('crypto');
-// var pass = 'Ee332MEd8cJBVDpX';
-// var url = 'mongodb+srv://turbo:' + pass +
-//   '@cluster0-ztclp.mongodb.net';  // database name: SwitchGrid
+var pass = 'Ee332MEd8cJBVDpX';
+var url = 'mongodb+srv://turbo:' + pass +'@cluster0-ztclp.mongodb.net';  // database name: SwitchGrid
 var myModules = require('./include/essencial_functions_module');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
